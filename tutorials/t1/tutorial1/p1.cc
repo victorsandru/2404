@@ -1,9 +1,16 @@
+// Victor Sandru
+// 101231111
+
 #include<iostream>
 #include<string>
 
 using namespace std;
 
 int main(){
-	cout<<"Delete this line and put your code here"<<endl;
+	string name;
+	cout<<"What is your name? ";
+	cin >> name;
+	cout << endl << "Hello " << name << "!";
+	
 	return 0;
 }
