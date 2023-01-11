@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int x, y, product;
+    int x, y, product = 0;
     cout << "Please enter two integers: ";
     cin >> x;
     cin >> y;
