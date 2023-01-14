@@ -1,7 +1,8 @@
 #include <iostream>
 #include <random>
 #include <sstream>
-#include "Hotel.h"
+#include "defs.h"
+// #include "Hotel.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ string orderedNames[NUM_NAMES] = {"Zelda", "Julie", "Alice", "Bobby"};
 int caps[NUM_ROOMS] = {12,10,8,9};
 
 int testResOverlap();
-bool resOverlap(Reservation& r1, Reservation& r2, bool);
+// bool resOverlap(Reservation& r1, Reservation& r2, bool);
 int testIsMatch();
 int testAddRoom();
 int testAddRoomOrder();

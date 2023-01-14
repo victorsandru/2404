@@ -33,11 +33,15 @@ class Date {
 		// advance this Date by 1 day
 		void incDate();
 		void print();
+		bool equals(Date&);
+		bool lessThan(Date&);
+		void addDays(int);	
+		string toString();
 	
 	private:
 		//functions
 		// get the number of days in this month
-		int getMaxDay();	
+		int getMaxDay();
 	
 		//variables
 		int day;
