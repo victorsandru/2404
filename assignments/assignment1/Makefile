@@ -1,7 +1,13 @@
-all: date main
+all: Date.o Reservation.o test
 
-date: Date.cc defs.h
-	g++ -c Date.cc defs.h
+Date.o: Date.h Date.cc
+	g++ -c Date.cc
 
-main: tester.cc defs.h
-	g++ -o tester tester.cc Date.o defs.h
+Reservation.o: Reservation.cc Reservation.h
+	g++ -c Reservation.cc
+
+test: tester.cc
+	g++ -o test tester.cc Reservation.o Date.o
+
+clean:
+	rm -rf *.o test

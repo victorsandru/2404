@@ -1,15 +1,11 @@
 #ifndef RESERVATION_H
-
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include "defs.h"
+#include "Date.h"
 
 using namespace std;
 
 class Reservation {
     public:
-        Reservation(string customerName, Date& checkIn, int duration);
+        Reservation(string, Date&, int);
 
         void setDuration(int);
         void setCustomerName(string);
@@ -22,10 +18,11 @@ class Reservation {
         void print();
         bool overlaps(Reservation&);
         bool lessThan(Reservation&);
-        // bool lessThan(Date& d);
+        bool lessThan(Date&);
     private:
         string customerName;
-        Date& checkIn;
         int duration;
+        Date& checkIn;
+
 };
 #endif

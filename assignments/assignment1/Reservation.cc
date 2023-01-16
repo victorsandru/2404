@@ -1,13 +1,9 @@
 #include "Reservation.h"
 
-Reservation::Reservation(string name, Date& checkedIn, int length) {}
-
-
-
-
-// void Reservation::setCheckIn(Date& dayCheckIn) {
-//     checkIn = dayCheckIn;
-// }
+Reservation::Reservation(string cn, Date& ci, int d) : checkIn(ci) {
+    customerName = cn;
+    setDuration(d);
+}
 
 void Reservation::setDuration(int incDur) {
     if(incDur < 1) {
@@ -23,4 +19,18 @@ Date Reservation::getCheckIn() { return checkIn; }
 
 void Reservation::print() {
     cout << "Reservation for " << customerName << " on " << checkIn.toString() << " for " << duration << " days." << endl;
+}
+
+bool Reservation::overlaps(Reservation& r) {
+    
+}
+
+bool Reservation::lessThan(Reservation& r) {
+    //if they overlap return false
+    if(checkIn.equals(r.checkIn)) return true;
+    return checkIn.lessThan(r.checkIn);
+}
+
+bool Reservation::lessThan(Date& d) {
+    // email prof cuz q makes no sense
 }
