@@ -10,6 +10,7 @@ private:
 
 public:
     Room(int roomNumber, string bedType, int capacity, bool hasFridge);
+    ~Room();
 
     int getRoomNumber();
 
@@ -17,6 +18,8 @@ public:
     bool lessThan(Room& r);
     bool addReservation(string customerName, Date& d, int duration);
     void printReservations();
+    
+    void print();
 };
 
 
