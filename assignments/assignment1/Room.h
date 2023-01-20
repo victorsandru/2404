@@ -1,5 +1,5 @@
 #ifndef ROOM_H
-#include "defs.h"
+#include "Reservation.h"
 
 class Room {
 private:
@@ -16,6 +16,7 @@ public:
     bool isMatch(string bt, int cap, bool f);
     bool lessThan(Room& r);
     bool addReservation(string customerName, Date& d, int duration);
+    void printReservations();
 };
 
 

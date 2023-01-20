@@ -1,4 +1,4 @@
-all: Date.o Reservation.o test
+all: Date.o Reservation.o Room.o tester 
 
 Date.o: Date.h Date.cc
 	g++ -c Date.cc
@@ -6,8 +6,11 @@ Date.o: Date.h Date.cc
 Reservation.o: Reservation.cc Reservation.h
 	g++ -c Reservation.cc
 
-test: tester.cc
-	g++ -o test tester.cc Reservation.o Date.o
+Room.o: Room.cc Room.h
+	g++ -c Room.cc
+
+tester: tester.cc
+	g++ -o tester tester.cc Reservation.o Date.o Room.o
 
 clean:
-	rm -rf *.o test
+	rm -rf *.o tester

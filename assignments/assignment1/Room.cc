@@ -25,5 +25,15 @@ bool Room::lessThan(Room& r) {
 
 bool Room::addReservation(string customerName, Date& d, int duration) {
     if(resArrayLength == MAX_RES) return false;
-    while()
+    Reservation *newRes = new Reservation(customerName, d, duration);
+    resArray[resArrayLength] = newRes;
+    resArrayLength++;
+    return true;
+}   
+
+void Room::printReservations() {
+    cout << "Room number: " << roomNumber << " | bed type: " << bedType << " | capacity: " << capacity << " | fridge: " << hasFridge << " | reservations: " << resArrayLength << endl;
+    for(int i = 0; i < resArrayLength; ++i) {
+        resArray[i]->print();
+    }
 }

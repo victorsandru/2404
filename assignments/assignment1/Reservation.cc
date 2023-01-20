@@ -22,15 +22,22 @@ void Reservation::print() {
 }
 
 bool Reservation::overlaps(Reservation& r) {
-    
+    Date lastDay = checkIn;
+    Date rLastDay = r.checkIn;
+    rLastDay.addDays(r.duration);
+    lastDay.addDays(duration);
+
+    return (checkIn.lessThan(rLastDay) && r.checkIn.lessThan(lastDay));
 }
 
 bool Reservation::lessThan(Reservation& r) {
-    //if they overlap return false
+    if(overlaps(r) == 1) return 0;
     if(checkIn.equals(r.checkIn)) return true;
     return checkIn.lessThan(r.checkIn);
 }
 
 bool Reservation::lessThan(Date& d) {
-    // email prof cuz q makes no sense
+    Date lastDay = checkIn;
+    lastDay.addDays(duration);
+    return lastDay.lessThan(d);
 }

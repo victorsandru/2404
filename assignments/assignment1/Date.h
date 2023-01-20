@@ -1,12 +1,7 @@
 
 #ifndef DATE_H
 #define DATE_H
-
-#include <iostream>
-#include <string>
-#include <iomanip>
-
-using namespace std;
+#include "defs.h"
 
 class Date {
 		

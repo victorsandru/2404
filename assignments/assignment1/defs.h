@@ -4,5 +4,10 @@
 #define MAX_ROOMS 256
 #define MAX_RES 64
 
-#include "Reservation.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
 #endif

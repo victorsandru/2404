@@ -99,7 +99,7 @@ bool Date::lessThan(Date& d) {
 		return 1;
 	} else if(year == d.year && month < d.month) {
 		return 1;
-	} else if(year == d.year && month == d.month && day < d.day) {
+	} else if(year == d.year && month == d.month && day <= d.day) {
 		return 1;
 	}
 
