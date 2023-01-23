@@ -22,7 +22,7 @@ class Reservation {
     private:
         string customerName;
         int duration;
-        Date& checkIn;
+        Date checkIn;
 
 };
 #endif

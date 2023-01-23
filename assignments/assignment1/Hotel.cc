@@ -41,18 +41,17 @@ bool Hotel::deleteRoom(int roomNumber) {
     return true;
 }
 
-//test this
+//issue somewhere here
 bool Hotel::getRoom(int roomNumber, Room** room) {
     for(int i = 0; i < roomArrayLength; ++i) {
         if(roomArray[i]->getRoomNumber() == roomNumber) {
-            room = &roomArray[i];
+            *room = roomArray[i];
             return true;
         }
     }
     return false;
 }
 
-//test this
 bool Hotel::addReservation(string customer, string bedType, int capacity, bool fr, Date& date, int duration) {
     for(int i = 0; i < roomArrayLength; ++i) {
         if(roomArray[i]->isMatch(bedType, capacity, fr)) {
@@ -68,7 +67,6 @@ void Hotel::print() {
     }
 }
 
-//test this
 void Hotel::printReservations() {
     for(int i = 0; i < roomArrayLength; ++i) {
         roomArray[i]->printReservations();

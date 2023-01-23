@@ -1,8 +1,14 @@
 #include "Reservation.h"
 
-Reservation::Reservation(string cn, Date& ci, int d) : checkIn(ci) {
+// Reservation::Reservation(string cn, Date& ci, int d) : checkIn(ci) {
+//     customerName = cn;
+//     setDuration(d);
+// }
+
+Reservation::Reservation(string cn, Date& ci, int d) {
     customerName = cn;
     setDuration(d);
+    checkIn = ci;
 }
 
 void Reservation::setDuration(int incDur) {
@@ -26,13 +32,11 @@ bool Reservation::overlaps(Reservation& r) {
     Date rLastDay = r.checkIn;
     rLastDay.addDays(r.duration);
     lastDay.addDays(duration);
-
     return (checkIn.lessThan(rLastDay) && r.checkIn.lessThan(lastDay));
 }
 
 bool Reservation::lessThan(Reservation& r) {
     if(overlaps(r) == 1) return 0;
-    if(checkIn.equals(r.checkIn)) return true;
     return checkIn.lessThan(r.checkIn);
 }
 

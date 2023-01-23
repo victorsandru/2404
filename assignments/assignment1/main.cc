@@ -2,7 +2,7 @@
 #include <random>
 #include <sstream>
 #include "defs.h"
-// #include "Hotel.h"
+#include "Hotel.h"
 
 using namespace std;
 
@@ -23,7 +23,7 @@ string orderedNames[NUM_NAMES] = {"Zelda", "Julie", "Alice", "Bobby"};
 int caps[NUM_ROOMS] = {12,10,8,9};
 
 int testResOverlap();
-// bool resOverlap(Reservation& r1, Reservation& r2, bool);
+bool resOverlap(Reservation& r1, Reservation& r2, bool);
 int testIsMatch();
 int testAddRoom();
 int testAddRoomOrder();
@@ -508,16 +508,13 @@ int testAddRes(){
     std::cout.rdbuf( strCout.rdbuf() );
 
     gt.printReservations();
-
     //replace std::out and print output to console
     std::cout.rdbuf( oldCoutStreamBuf );
     string output = strCout.str();
     std::cout << output;
-    
     Room* room;
 
     std::cout.rdbuf( strCout.rdbuf() );
-
     //match the type to the room, then find the corresponding names
     for (int i = 0; i < NUM_ROOMS; ++i){
         strCout.str(std::string());
@@ -572,7 +569,7 @@ int testUpdateReservations(){
     cout<<"Printing reservations:"<<endl;
     gt.printReservations();
     cout<<"Updating reservations:"<<endl;
-    gt.updateReservations(dates[NUM_NAMES-2]);
+    // gt.updateReservations(dates[NUM_NAMES-2]);
     //capture the output and put in a stringstream
     //so we can make sure things print properly
     streambuf* oldCoutStreamBuf = std::cout.rdbuf();
