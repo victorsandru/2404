@@ -30,6 +30,7 @@ bool Room::lessThan(Room& r) {
 }
 
 bool Room::addReservation(string customerName, Date& d, int duration) {
+    int index;
     if(resArrayLength == MAX_RES) return false;
     
     Reservation *newRes = new Reservation(customerName, d, duration);
@@ -39,7 +40,26 @@ bool Room::addReservation(string customerName, Date& d, int duration) {
             return false;
         }
     }
-    resArray[resArrayLength] = newRes;
+    if(resArrayLength == 0) {
+        resArray[resArrayLength] = newRes;
+        resArrayLength++;
+        return true;
+    }
+    for(int j = 0; j < resArrayLength; ++j) {
+        // if(newRes->lessThan(*resArray[j])) {
+        if(resArray[j]->lessThan(*newRes)) {
+            index = j;
+            break;
+        } else {
+            index = j + 1;
+        }
+    }
+
+    for(int k = resArrayLength + 1; k >= index; --k) {
+        resArray[k] = resArray[k - 1];
+    }
+
+    resArray[index] = newRes;
     resArrayLength++;
     return true;
 }   
