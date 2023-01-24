@@ -14,7 +14,7 @@ public:
     bool deleteRoom(int roomNumber);
     bool getRoom(int RoomNumber, Room** room);
     bool addReservation(string customer, string bedType, int capacity, bool fr, Date& date, int duration);
-    
+    // void updateReservations(Date& currentDate);
 
     void print();
     void printReservations();

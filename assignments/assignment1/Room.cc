@@ -46,8 +46,7 @@ bool Room::addReservation(string customerName, Date& d, int duration) {
         return true;
     }
     for(int j = 0; j < resArrayLength; ++j) {
-        // if(newRes->lessThan(*resArray[j])) {
-        if(resArray[j]->lessThan(*newRes)) {
+        if(newRes->lessThan(*resArray[j])) {
             index = j;
             break;
         } else {
@@ -69,10 +68,18 @@ void Room::print() {
 }
 
 void Room::printReservations() {
-    // cout << "Reservations for room number " << roomNumber << endl; 
     print();
     for(int i = 0; i < resArrayLength; ++i) {
         resArray[i]->print();
     }
     cout << endl;
 }
+
+// can only do this when sorted is done
+// void Room::updateReservations(Date& currentDate) {
+//     for(int i = 0; i < resArrayLength; ++i) {
+//         if(resArray[i]->lessThan(currentDate)) {
+
+//         }
+//     }
+// }

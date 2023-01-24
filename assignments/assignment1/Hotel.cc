@@ -11,9 +11,28 @@ Hotel::~Hotel() {
 }
 
 bool Hotel::addRoom(int roomNumber, string bedType, int capacity, bool fr) {
+    int index;
     if(roomArrayLength == MAX_ROOMS) return false;
     Room *newRoom = new Room(roomNumber, bedType, capacity, fr);
-    roomArray[roomArrayLength] = newRoom;
+    if(roomArrayLength == 0) {
+        roomArray[roomArrayLength] = newRoom;
+        roomArrayLength++;
+        return true;
+    }
+    for(int j = 0; j < roomArrayLength; ++j) {
+        if(newRoom->lessThan(*roomArray[j])) {
+            index = j;
+            break;
+        } else {
+            index = j + 1;
+        }
+    }
+
+    for(int k = roomArrayLength + 1; k >= index; --k) {
+        roomArray[k] = roomArray[k - 1];
+    }
+
+    roomArray[index] = newRoom;
     roomArrayLength++;
     return true;
 }
@@ -33,6 +52,7 @@ bool Hotel::deleteRoom(int roomNumber) {
         }
     }
     if(index == -1) return false;
+    delete roomArray[index];
     for(int j = index; j < roomArrayLength - 1; ++j) {
         roomArray[j] = roomArray[j + 1];
     }
@@ -41,7 +61,6 @@ bool Hotel::deleteRoom(int roomNumber) {
     return true;
 }
 
-//issue somewhere here
 bool Hotel::getRoom(int roomNumber, Room** room) {
     for(int i = 0; i < roomArrayLength; ++i) {
         if(roomArray[i]->getRoomNumber() == roomNumber) {
@@ -72,3 +91,10 @@ void Hotel::printReservations() {
         roomArray[i]->printReservations();
     }
 }
+
+// can only do this when sorted is done
+// void Hotel::updateReservations(Date& currentDate) {
+//     for(int i = 0; i < roomArrayLength; ++i) {
+//         if(roomArray.)
+//     }
+// }

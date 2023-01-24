@@ -143,7 +143,40 @@ int testResOverlap(){
 
     std::cout<<endl;
     if (!resOverlap(r9, r10, false)) score = 0;
-    
+
+    //1
+    //testing same day, should not overlap
+    Date date9(2023, 1, 23);
+    Date date10(2023, 1, 24);
+    Reservation r11("Joe", date9, 1);
+    Reservation r12("Joe", date10, 1);
+    std::cout<<endl;
+    if (!resOverlap(r11, r12, false)) score = 0;
+
+    //2
+    //testing same day, should overlap
+    Reservation r13("Joe", date9, 1);
+    Reservation r14("Joe", date9, 1);
+    std::cout<<endl;
+    if (!resOverlap(r13, r14, true)) score = 0;
+
+    //3
+    //testing same day, longer duration, should overlap
+    Reservation r15("Joe", date9, 1);
+    Reservation r16("Joe", date9, 2);
+    std::cout<<endl;
+    if (!resOverlap(r15, r16, true)) score = 0;
+
+    //4
+    //testing different decade, should not overlap
+    Date date11(2029, 12, 30);
+    Date date12(2030, 1 , 1);
+    Reservation r17("Joe", date11, 1);
+    Reservation r18("Joe", date12, 1);
+    std::cout<<endl;
+    if (!resOverlap(r17, r18, false)) score = 0;
+
+
     cout<<"Score: "<<score<<endl;
     
     return score;
