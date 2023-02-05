@@ -108,3 +108,6 @@ int Date::getMaxDay() const{
 	}
 }
 
+string Date::toString() {
+	return getMonthName() + " " + to_string(day) + ", " + to_string(year);
+}

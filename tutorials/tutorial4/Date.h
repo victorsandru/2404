@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include "defs.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ class Date {
 		bool lessThan(const Date& d) const;
 		bool equals(const Date& d) const;
 		void print() const;
+		string toString();
 	
 	private:
 		//functions

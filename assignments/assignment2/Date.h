@@ -35,6 +35,7 @@ class Date {
 		bool lessThan(const Date& d) const;
 		bool equals(const Date& d) const;
 		void print() const;
+		string toString();
 	
 	private:
 		//functions
