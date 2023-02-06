@@ -12,7 +12,7 @@ class StackArrays {
         ~StackArrays();
 
         Photo* getObjectArray();
-        Photo* getPointerArray();
+        Photo** getPointerArray();
         
         void addPhoto(Photo photoToAdd);
 };

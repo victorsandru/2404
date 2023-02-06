@@ -14,8 +14,8 @@ Photo* StackArrays::getObjectArray() {
     return &photoObjArray[0];
 }
 
-Photo* StackArrays::getPointerArray() {
-    return photoPtrArray[0];
+Photo** StackArrays::getPointerArray() {
+    return &photoPtrArray[0];
 }
 
 void StackArrays::addPhoto(Photo photoToAdd) {

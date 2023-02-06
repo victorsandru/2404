@@ -2,7 +2,7 @@
 #include <string>
 
 #include "StackArrays.h"
-// #include "HeapArrays.h"
+#include "HeapArrays.h"
 #include "defs.h"
 
 

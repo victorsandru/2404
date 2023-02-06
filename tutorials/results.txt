@@ -1,0 +1,83 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+
+Testing stack object array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Title: Selfie | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Alien | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Baboon | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+
+'Selfie' found, 2 marks
+'Alien' found, 2 marks
+'Baboon' found, 2 marks
+'picture' not found
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing stack pointer array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Title: Photo | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Title | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Here | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+
+'Photo' found, 2 marks
+'Title' found, 2 marks
+'Here' found, 2 marks
+'RCMP' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing heap object array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Title: Selfie | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Alien | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Baboon | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+
+'Selfie' found, 2 marks
+'Alien' found, 2 marks
+'Baboon' found, 2 marks
+'picture' not found
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing heap pointer array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Title: Photo | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Title | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+Title: Here | date: January 1, 1901
+content: YOU HAVE BEEN COPYRIGHT RCMP
+
+'Photo' found, 2 marks
+'Title' found, 2 marks
+'Here' found, 2 marks
+'RCMP' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+
+***************************************************************************
+* Mark: 36/40
+***************************************************************************
+

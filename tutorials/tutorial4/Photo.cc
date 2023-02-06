@@ -16,6 +16,7 @@ Photo::Photo(const Photo& oldPhoto) {
     title = oldPhoto.title;
     date = oldPhoto.date;
     content = "YOU HAVE BEEN COPYRIGHT RCMP";
+    // content = oldPhoto.content;
 }
 
 bool Photo::equal(const string& titleName) {

@@ -1,7 +1,7 @@
 all: test
 	
 test: test.cc Photo.o Date.o HeapArrays.o StackArrays.o
-	g++ -o test test.cc Photo.o Date.o HeapArrays.o StackArrays.o
+	g++ -g -o test test.cc Photo.o Date.o HeapArrays.o StackArrays.o
 
 main: main.cc Photo.o Date.o StackArrays.o HeapArrays.o
 	g++ -g -o main main.cc Photo.o Date.o StackArrays.o HeapArrays.o

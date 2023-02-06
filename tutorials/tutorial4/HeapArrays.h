@@ -4,15 +4,15 @@
 
 class HeapArrays {
     private:
-        Photo* photoObjArray[ARR_SIZE];
-        Photo** photoPtrArray[ARR_SIZE];
+        Photo* photoObjArray;
+        Photo** photoPtrArray;
         int arrayLength;
     public:
         HeapArrays();
         ~HeapArrays();
 
         Photo* getObjectArray();
-        Photo* getPointerArray();
+        Photo** getPointerArray();
 
         void addPhoto(Photo photoToAdd);
 };
