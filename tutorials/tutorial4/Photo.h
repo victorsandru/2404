@@ -10,7 +10,7 @@ class Photo {
     public:
         Photo();
         Photo(const string& title, const Date& date, const string& content);
-        Photo(const Photo& oldPhoto);
+        Photo(Photo& oldPhoto);
         
         bool equal(const string& titleName);
         void print();

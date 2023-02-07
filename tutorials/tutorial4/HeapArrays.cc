@@ -22,7 +22,7 @@ Photo** HeapArrays::getPointerArray() {
     return &photoPtrArray[0];
 }
 
-void HeapArrays::addPhoto(Photo photoToAdd) {
+void HeapArrays::addPhoto(Photo& photoToAdd) {
     Photo* newPhoto = new Photo(photoToAdd);
     photoObjArray[arrayLength] = *newPhoto;
     photoPtrArray[arrayLength] = newPhoto;

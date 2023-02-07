@@ -14,6 +14,6 @@ class StackArrays {
         Photo* getObjectArray();
         Photo** getPointerArray();
         
-        void addPhoto(Photo photoToAdd);
+        void addPhoto(Photo& photoToAdd);
 };
 #endif

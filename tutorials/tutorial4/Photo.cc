@@ -12,11 +12,11 @@ Photo::Photo(const string& titleC, const Date& dateC, const string& contentC) {
     content = contentC;
 }
 
-Photo::Photo(const Photo& oldPhoto) {
+Photo::Photo(Photo& oldPhoto) {
     title = oldPhoto.title;
     date = oldPhoto.date;
-    content = "YOU HAVE BEEN COPYRIGHT RCMP";
-    // content = oldPhoto.content;
+    // content = "YOU HAVE BEEN COPYRIGHT RCMP";
+    content = oldPhoto.content + "RCMP";
 }
 
 bool Photo::equal(const string& titleName) {
