@@ -12,7 +12,6 @@ Album::Album(const Album& copy) {
     albumArray = new PhotoArray();
     for(int i = 0; i < copy.albumArray->size(); i++) {
         albumArray->add(new Photo(*copy.albumArray->get(i)));
-        // albumArray->add(copy.albumArray->get(i));
     }
 }
 
