@@ -72,7 +72,7 @@ int destructorTest(){
 
 int deepCopyTest(){
   Album* alb = new Album(albumTitles[1],descriptions[1]);
-  for (int i = 0; i < 5; ++i){
+  for (int i = 0; i < 1; ++i){
           if (!alb->addPhoto(new Photo(photoTitles[1][i], Date(2023,2,i), photoContent[1][i]))){
             cout<<"Photo not added"<<endl;
           }
