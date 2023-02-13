@@ -96,7 +96,6 @@ int deepCopyTest(){
   }
   photo ->display();
   cout<<"Deep copy test complete"<<endl;
-  delete alb2;
   return 0;
 }
 // random titles
