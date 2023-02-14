@@ -1,7 +1,16 @@
 # all: main
 	
-# main: main.cc Photo.o Date.o PhotoArray.o Album.o
-# 	g++ -g -o main main.cc Photo.o Date.o PhotoArray.o Album.o
+# main: main.cc Photo.o Date.o PhotoArray.o Album.o AlbumArray.o PhotoArray.o PhotoGram.o
+# 	g++ -g -o main main.cc Photo.o Date.o PhotoArray.o Album.o AlbumArray.o PhotoArray.o PhotoGram.o
+
+# PhotoGram.o: PhotoGram.cc PhotoGram.h
+# 	g++ -g -c PhotoGram.cc
+
+# AlbumArray.o: AlbumArray.cc AlbumArray.h
+# 	g++ -g -c AlbumArray.cc
+
+# PhotoArray.o:   PhotoArray.cc PhotoArray.h
+# 	g++ -c PhotoArray.cc
 
 # Photo.o: Photo.h Photo.cc
 # 	g++ -c -g Photo.cc
@@ -20,16 +29,25 @@
 
 #observe - Linux is case sensitive. These names should match your filenames exactly
 
-all: test main
+all: main test
 
-main: main.cc PhotoArray.o Photo.o Date.o Album.o 
-	g++ -o main main.cc PhotoArray.o Photo.o Date.o Album.o 
+main: main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o 
+	g++ -o main main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o
 
-test: test.o PhotoArray.o Photo.o Date.o Album.o 
-	g++ -o test test.o PhotoArray.o Photo.o Date.o Album.o 
+test: TestControl.o TestView.o PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o 
+	g++ -o test TestView.o TestControl.o PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o 
 	
-test.o: test.cc Photo.h Album.h
-	g++ -c test.cc
+TestView.o: TestView.cc TestView.h
+	g++ -c TestView.cc
+
+TestControl.o: TestControl.cc TestControl.h
+	g++ -g -c TestControl.cc
+
+PhotoGram.o: PhotoGram.cc PhotoGram.h
+	g++ -g -c PhotoGram.cc
+
+AlbumArray.o: AlbumArray.cc AlbumArray.h
+	g++ -g -c AlbumArray.cc
 
 PhotoArray.o:   PhotoArray.cc PhotoArray.h
 	g++ -c PhotoArray.cc
@@ -44,4 +62,4 @@ Date.o:	Date.h Date.cc
 	g++ -c Date.cc
 	
 clean:
-	rm -f test *.o
+	rm -f test *.o main

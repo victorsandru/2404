@@ -18,17 +18,17 @@ Photo::Photo(const Photo& oldPhoto) {
     content = oldPhoto.content;
 }
 
-bool Photo::equal(const string& titleName) {
+bool Photo::equals(const string& titleName) {
     return title == titleName;
 }
 
 void Photo::print() {
-    cout << "Title: " << title << " | date: " << date.toString() << endl; 
+    cout << "Photo Title: " << title << " | date: " << date.toString() << endl; 
 }
 
 void Photo::display() {
     print();
-    cout << "content: " << content << endl;
+    cout << "Photo content: " << content << endl;
 }
 
 string& Photo::getTitle() {

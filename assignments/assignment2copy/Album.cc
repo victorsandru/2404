@@ -39,7 +39,7 @@ bool Album::addPhoto(Photo* photoToAdd) {
     return albumArray->add(photoToAdd);
 }
 
-bool Album::addPhoto(Photo* photoToAdd, int index) {
+bool Album::addPhoto(int index, Photo* photoToAdd) {
     return albumArray->add(photoToAdd, index);
 }
 
@@ -60,7 +60,7 @@ Photo* Album::removePhoto(int index) {
 }
 
 void Album::print() {
-    cout << "Title: " << title << " | Desc.: " << description << endl;
+    cout << "Album Title: " << title << " | Desc.: " << description << endl;
 }
 
 void Album::display() {

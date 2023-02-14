@@ -17,7 +17,7 @@ class Album {
         bool equals(const string&);
         bool lessThan(Album&);
         bool addPhoto(Photo*);
-        bool addPhoto(Photo*, int);
+        bool addPhoto(int, Photo*);
         Photo* getPhoto(const string&);
         Photo* getPhoto(int);
         Photo* removePhoto(const string&);

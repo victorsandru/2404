@@ -46,6 +46,7 @@ Album* AlbumArray::remove(const string& name) {
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
             rv = array[i];
+            delete rv;
             for(int j = i; j < arrayLength; ++j) {
                 array[j] = array[j + 1];
             }
@@ -63,5 +64,6 @@ Album* AlbumArray::remove(int index) {
         array[i] = array[i + 1];
     }
     --arrayLength;
+    delete rv;
     return rv;
 }
