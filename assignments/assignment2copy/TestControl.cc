@@ -1,7 +1,7 @@
 
 #include "TestControl.h"
 #include "TestView.h"
-#include "PhotoGram.h"
+// #include "PhotoGram.h"
 // #include "Client.h"
 #include <limits>
 
@@ -666,11 +666,11 @@ const string TestControl::photoTitles[5][5] =
 
 const string TestControl::photoContent[5][5] = {
 R"(
- ▄▀▀▀▀▀───▄█▀▀▀█▄
+▄▀▀▀▀▀───▄█▀▀▀█▄
 ▐▄▄▄▄▄▄▄▄██▌▀▄▀▐██
 ▐▒▒▒▒▒▒▒▒███▌▀▐███
- ▌▒▓▒▒▒▒▓▒██▌▀▐██
- ▌▓▐▀▀▀▀▌▓─▀▀▀▀▀)",
+▌▒▓▒▒▒▒▓▒██▌▀▐██
+▌▓▐▀▀▀▀▌▓─▀▀▀▀▀)",
 
 R"(
 ┼┼┼┼┼┼┼┼▓▓▓▓┼┼┼
