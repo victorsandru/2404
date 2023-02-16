@@ -6,9 +6,10 @@ AlbumArray::AlbumArray() {
 }
 
 AlbumArray::~AlbumArray() {
-    for(int i = 0; i < arrayLength; ++i) {
-        delete array[i];
-    }
+    // for(int i = 0; i < arrayLength; ++i) {
+    //     delete array[i];
+    // }
+    // delete[] array;
     delete[] array;
 }
 
@@ -20,9 +21,24 @@ int AlbumArray::size() {
     return arrayLength;
 }
 
-bool AlbumArray::add(Album* AlbumAdd) {
+bool AlbumArray::add(Album* albumAdd) {
     if(isFull()) return false;
-    array[arrayLength] = AlbumAdd;
+    int index = -1;
+    for(int i = 0; i < arrayLength; ++i) {
+        if(array[i]->lessThan(*albumAdd)) {
+            index = i;
+            break;
+        }
+    }
+    if(index == -1) {
+        array[arrayLength] = albumAdd;
+    } else {
+        for(int k = arrayLength + 1; k >= index; --k) {
+            array[k] = array[k - 1];
+        }
+        array[index] = albumAdd;
+    }
+
     ++arrayLength;
     return true;
 }
@@ -46,7 +62,6 @@ Album* AlbumArray::remove(const string& name) {
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
             rv = array[i];
-            delete rv;
             for(int j = i; j < arrayLength; ++j) {
                 array[j] = array[j + 1];
             }
@@ -64,6 +79,5 @@ Album* AlbumArray::remove(int index) {
         array[i] = array[i + 1];
     }
     --arrayLength;
-    delete rv;
     return rv;
 }

@@ -15,7 +15,9 @@ bool PhotoGram::addAlbum(const string& title, const string& albumDesc) {
 }
 
 bool PhotoGram::removeAlbum(const string& title) {
-    if(albumArr->remove(title) != NULL) {
+    Album* albumRemove = albumArr->remove(title);
+    if(albumRemove != NULL) {
+        delete albumRemove;
         return true;
     } else {
         cout << "title does not exist" << endl;
@@ -34,7 +36,8 @@ bool PhotoGram::addPhoto(const string& title, Photo photoToAdd) {
 
 bool PhotoGram::removePhoto(const string& albTitle, const string& photoTitle) {
     if(albumArr->get(albTitle) != NULL) {
-        return albumArr->get(albTitle)->removePhoto(photoTitle);
+        delete albumArr->get(albTitle)->removePhoto(photoTitle);
+        return true;
     } else {
         cout << "album not found" << endl;
         return false;
@@ -42,16 +45,19 @@ bool PhotoGram::removePhoto(const string& albTitle, const string& photoTitle) {
 }
 
 Album* PhotoGram::downloadAlbum(const string& title) {
-    return albumArr->get(title);
+    if(albumArr->get(title) != NULL) {
+        return albumArr->get(title);
+    }
+    cout << "album not found" << endl;
+    return NULL;
 }
 
 Photo* PhotoGram::downloadPhoto(const string& albTitle, const string& photoTitle) {
     if(albumArr->get(albTitle) != NULL) {
         return albumArr->get(albTitle)->getPhoto(photoTitle);
-    } else {
-        cout << "album not found" << endl;
-        return NULL;
-    }    
+    }
+    cout << "album not found" << endl;
+    return NULL;
 }
 
 void PhotoGram::printAlbums() {

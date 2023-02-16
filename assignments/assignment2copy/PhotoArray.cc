@@ -52,11 +52,11 @@ Photo* PhotoArray::get(int index) {
 }
 
 Photo* PhotoArray::remove(const string& name) {
+    if(size() == 0) return NULL;
     Photo* rv;
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
             rv = array[i];
-            delete rv;
             for(int j = i; j < arrayLength; ++j) {
                 array[j] = array[j + 1];
             }
@@ -68,12 +68,12 @@ Photo* PhotoArray::remove(const string& name) {
 }
 
 Photo* PhotoArray::remove(int index) {
+    if(size() == 0) return NULL;
     if(index >= arrayLength || index < 0) return NULL;
     Photo* rv = array[index];
     for(int i = index; i < arrayLength; ++i) {
         array[i] = array[i + 1];
     }
     --arrayLength;
-    delete rv;
     return rv;
 }

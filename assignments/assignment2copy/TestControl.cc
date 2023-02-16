@@ -1,8 +1,8 @@
 
 #include "TestControl.h"
 #include "TestView.h"
-// #include "PhotoGram.h"
-// #include "Client.h"
+#include "PhotoGram.h"
+#include "Client.h"
 #include <limits>
 
 using namespace std;
@@ -535,76 +535,76 @@ int TestControl::photoGramTest(){
 }
 
 
-// int TestControl::clientTest(){
-//     int points = 5;
-//     PhotoGram photoGram;
-//     Client client;
+int TestControl::clientTest(){
+    int points = 5;
+    PhotoGram photoGram;
+    Client client;
 
-//     initialize(&photoGram);
+    initialize(&photoGram);
 
-//     int photoIndex = ran(0,5);
-//     int artistIndex = ran(0,3);
-//     int albumIndex = ran(0,2);
-//     cout <<"Testing display online, Photo "<<photoTitles[albumIndex][photoIndex]
-//          <<" from "<<albumTitles[albumIndex]<<endl<<endl;
-//     if (!client.displayOnlinePhoto(&photoGram, albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
-//         cout << "Display online unsuccessful (or did you forget to return true?), -1 point"<<endl;
-//         --points;
-//     }
+    int photoIndex = ran(0,5);
+    int artistIndex = ran(0,3);
+    int albumIndex = ran(0,2);
+    cout <<"Testing display online, Photo "<<photoTitles[albumIndex][photoIndex]
+         <<" from "<<albumTitles[albumIndex]<<endl<<endl;
+    if (!client.displayOnlinePhoto(&photoGram, albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
+        cout << "Display online unsuccessful (or did you forget to return true?), -1 point"<<endl;
+        --points;
+    }
 
-//     pressEnterToContinue();
+    pressEnterToContinue();
 
-//     cout <<"Testing download...downloading Album "<<albumTitles[albumIndex]<<endl<<endl;
+    cout <<"Testing download...downloading Album "<<albumTitles[albumIndex]<<endl<<endl;
 
-//     if(!client.downloadAlbum(&photoGram, albumTitles[albumIndex])){
-//         cout << "Download unsuccessful (or did you forget to return true?), -3 points, test aborted."<<endl;
-//         points-=3;
-//         cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
-//         return points;
-//     }
+    if(!client.downloadAlbum(&photoGram, albumTitles[albumIndex])){
+        cout << "Download unsuccessful (or did you forget to return true?), -3 points, test aborted."<<endl;
+        points-=3;
+        cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
+        return points;
+    }
 
-//     pressEnterToContinue();
+    pressEnterToContinue();
     
 
-//     cout<<endl<<"Testing displayLocal photo "<<photoTitles[albumIndex][photoIndex]
-//          <<" from "<<albumTitles[albumIndex]<<endl<<endl;
-//     cout<<"i.e., displaying the copy of photo stored in Client"<<endl;
-//     if (!client.displayLocalPhoto(albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
-//         cout << "displayLocalPhoto unsuccessful (or did you forget to return true?), -1 mark"<<endl;
-//         --points;
-//     }
+    cout<<endl<<"Testing displayLocal photo "<<photoTitles[albumIndex][photoIndex]
+         <<" from "<<albumTitles[albumIndex]<<endl<<endl;
+    cout<<"i.e., displaying the copy of photo stored in Client"<<endl;
+    if (!client.displayLocalPhoto(albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
+        cout << "displayLocalPhoto unsuccessful (or did you forget to return true?), -1 mark"<<endl;
+        --points;
+    }
 
-//     cout<<endl<<"Deleting original album from PhotoGram, then testing displayLocal (from Client) again"<<endl<<endl;
-//     pressEnterToContinue();
-//     if(!photoGram.removeAlbum(albumTitles[albumIndex])){
-//         cout<<"Remove album failed (or did you forget to return true?), -2 marks, test aborted."<<endl;
-//         points-=2;
-//         cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
-//         return points;
-//     }
+    cout<<endl<<"Deleting original album from PhotoGram, then testing displayLocal (from Client) again"<<endl<<endl;
+    pressEnterToContinue();
+    if(!photoGram.removeAlbum(albumTitles[albumIndex])){
+        cout<<"Remove album failed (or did you forget to return true?), -2 marks, test aborted."<<endl;
+        points-=2;
+        cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
+        return points;
+    }
 
 
-//     if (!client.displayLocalPhoto(albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
-//         cout << "Display Local unsuccessful (or did you forget to return true?), -1 point"<<endl;
-//         --points;
-//     }else{
+    if (!client.displayLocalPhoto(albumTitles[albumIndex], photoTitles[albumIndex][photoIndex])){
+        cout << "Display Local unsuccessful (or did you forget to return true?), -1 point"<<endl;
+        --points;
+    }else{
 
-//         cout<<"Success! (Photo should be displayed.)"<<endl<<endl;
-//     }
-//     pressEnterToContinue();
+        cout<<"Success! (Photo should be displayed.)"<<endl<<endl;
+    }
+    pressEnterToContinue();
 
-//     cout<<"**MANUAL MARK** Printing all albums from local memory, no photos (should be 1 album):"<<endl;
-//     client.printLocalAlbums();
-//     pressEnterToContinue();
+    cout<<"**MANUAL MARK** Printing all albums from local memory, no photos (should be 1 album):"<<endl;
+    client.printLocalAlbums();
+    pressEnterToContinue();
    
-//     client.displayLocalAlbums();
-//     cout<<endl<<"**MANUAL MARK** Displaying all photos from local memory (should be 1 album, 5 photos): "<<endl;
-//     pressEnterToContinue();
-//     cout<<"Deduct 1 mark for each print and display function (immediately before this line) that does not work"<<endl;
-//     cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
-//     return points;
+    client.displayLocalAlbums();
+    cout<<endl<<"**MANUAL MARK** Displaying all photos from local memory (should be 1 album, 5 photos): "<<endl;
+    pressEnterToContinue();
+    cout<<"Deduct 1 mark for each print and display function (immediately before this line) that does not work"<<endl;
+    cout<<endl<<"Marks earned: "<<(points>0?points:0)<<" out of 5"<<endl;
+    return points;
 
-// }
+}
 
 void TestControl::initialize(PhotoGram* photoGram){
     // unordered_set<int> rphoto;    //random photo
