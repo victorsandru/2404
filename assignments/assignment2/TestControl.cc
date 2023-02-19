@@ -1,6 +1,7 @@
 
 #include "TestControl.h"
 #include "TestView.h"
+#include "PhotoGram.h"
 #include "Client.h"
 #include <limits>
 
@@ -428,6 +429,7 @@ int TestControl::albumArrayTest(){
     pressEnterToContinue();
 
     cout<<"Deleting AlbumArray..."<<endl;
+    cout << aa->size() << endl;
     delete aa;
     cout<<"**MANUAL MARK** If an error occurs in the next step, student may have deleted Album with AlbumArray, deduct 4 marks"<<endl<<endl;
 
@@ -665,11 +667,11 @@ const string TestControl::photoTitles[5][5] =
 
 const string TestControl::photoContent[5][5] = {
 R"(
- ▄▀▀▀▀▀───▄█▀▀▀█▄
+▄▀▀▀▀▀───▄█▀▀▀█▄
 ▐▄▄▄▄▄▄▄▄██▌▀▄▀▐██
 ▐▒▒▒▒▒▒▒▒███▌▀▐███
- ▌▒▓▒▒▒▒▓▒██▌▀▐██
- ▌▓▐▀▀▀▀▌▓─▀▀▀▀▀)",
+▌▒▓▒▒▒▒▓▒██▌▀▐██
+▌▓▐▀▀▀▀▌▓─▀▀▀▀▀)",
 
 R"(
 ┼┼┼┼┼┼┼┼▓▓▓▓┼┼┼

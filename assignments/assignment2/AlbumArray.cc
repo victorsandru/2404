@@ -1,43 +1,48 @@
-#include "PhotoArray.h"
+#include "AlbumArray.h"
 
-PhotoArray::PhotoArray() {
-    array = new Photo*[MAX_ARRAY];
+AlbumArray::AlbumArray() {
+    array = new Album*[MAX_ARRAY];
     arrayLength = 0;
 }
 
-PhotoArray::~PhotoArray() {
+AlbumArray::~AlbumArray() {
     for(int i = 0; i < arrayLength; ++i) {
         delete array[i];
     }
     delete[] array;
 }
 
-bool PhotoArray::isFull() {
+bool AlbumArray::isFull() {
     return MAX_ARRAY == arrayLength;
 }
 
-int PhotoArray::size() {
+int AlbumArray::size() {
     return arrayLength;
 }
 
-bool PhotoArray::add(Photo* photoAdd) {
+bool AlbumArray::add(Album* albumAdd) {
     if(isFull()) return false;
-    array[arrayLength] = photoAdd;
-    ++arrayLength;
-    return true;
-}
-
-bool PhotoArray::add(Photo* photoAdd, int index) {
-    if(isFull() || index > arrayLength) return false;
-    for(int i = arrayLength + 1; i >= index; --i) {
-        array[i] = array[i - 1];
+    int index = -1;
+    for(int i = 0; i < arrayLength; ++i) {
+        if(array[i]->lessThan(*albumAdd)) {
+            index = i;
+            break;
+        }
     }
-    array[index] = photoAdd;
+    if(index == -1) {
+        array[arrayLength] = albumAdd;
+    } else {
+        for(int k = arrayLength + 1; k > index; --k) {
+            array[k] = array[k - 1];
+        }
+        array[index] = albumAdd;
+    }
+
     ++arrayLength;
     return true;
 }
 
-Photo* PhotoArray::get(const string& name) {
+Album* AlbumArray::get(const string& name) {
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
             return array[i];
@@ -46,14 +51,14 @@ Photo* PhotoArray::get(const string& name) {
     return NULL;
 }
 
-Photo* PhotoArray::get(int index) {
+Album* AlbumArray::get(int index) {
     if(index >= arrayLength) return NULL;
     return array[index];
 }
 
-Photo* PhotoArray::remove(const string& name) {
+Album* AlbumArray::remove(const string& name) {
     if(size() == 0) return NULL;
-    Photo* rv;
+    Album* rv;
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
             rv = array[i];
@@ -67,10 +72,10 @@ Photo* PhotoArray::remove(const string& name) {
     return NULL;
 }
 
-Photo* PhotoArray::remove(int index) {
+Album* AlbumArray::remove(int index) {
     if(size() == 0) return NULL;
     if(index >= arrayLength || index < 0) return NULL;
-    Photo* rv = array[index];
+    Album* rv = array[index];
     for(int i = index; i < arrayLength; ++i) {
         array[i] = array[i + 1];
     }

@@ -6,7 +6,10 @@ PhotoArray::PhotoArray() {
 }
 
 PhotoArray::~PhotoArray() {
-    delete array;
+    for(int i = 0; i < arrayLength; ++i) {
+        delete array[i];
+    }
+    delete[] array;
 }
 
 bool PhotoArray::isFull() {
@@ -26,7 +29,7 @@ bool PhotoArray::add(Photo* photoAdd) {
 
 bool PhotoArray::add(Photo* photoAdd, int index) {
     if(isFull() || index > arrayLength) return false;
-    for(int i = arrayLength + 1; i >= index; --i) {
+    for(int i = arrayLength + 1; i > index; --i) {
         array[i] = array[i - 1];
     }
     array[index] = photoAdd;
@@ -49,6 +52,7 @@ Photo* PhotoArray::get(int index) {
 }
 
 Photo* PhotoArray::remove(const string& name) {
+    if(size() == 0) return NULL;
     Photo* rv;
     for(int i = 0; i < arrayLength; ++i) {
         if(name == array[i]->getTitle()) {
@@ -56,6 +60,7 @@ Photo* PhotoArray::remove(const string& name) {
             for(int j = i; j < arrayLength; ++j) {
                 array[j] = array[j + 1];
             }
+            --arrayLength;
             return rv;
         }
     }
@@ -63,10 +68,12 @@ Photo* PhotoArray::remove(const string& name) {
 }
 
 Photo* PhotoArray::remove(int index) {
+    if(size() == 0) return NULL;
     if(index >= arrayLength || index < 0) return NULL;
     Photo* rv = array[index];
     for(int i = index; i < arrayLength; ++i) {
         array[i] = array[i + 1];
     }
+    --arrayLength;
     return rv;
 }

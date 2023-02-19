@@ -9,11 +9,18 @@ Album::Album(const string& titleName, const string& descriptionName) {
 Album::Album(const Album& copy) {
     title = copy.title;
     description = copy.description;
-    albumArray = copy.albumArray;
+    albumArray = new PhotoArray();
+    for(int i = 0; i < copy.albumArray->size(); i++) {
+        albumArray->add(new Photo(*copy.albumArray->get(i)));
+    }
 }
 
 Album::~Album() {
-    //
+    delete albumArray;
+}
+
+int Album::size() {
+    return albumArray->size();
 }
 
 string& Album::getTitle() {
@@ -28,32 +35,32 @@ bool Album::lessThan(Album& alb) {
     return title < alb.getTitle();
 }
 
-bool Album::add(Photo* photoToAdd) {
+bool Album::addPhoto(Photo* photoToAdd) {
     return albumArray->add(photoToAdd);
 }
 
-bool Album::add(Photo* photoToAdd, int index) {
+bool Album::addPhoto(int index, Photo* photoToAdd) {
     return albumArray->add(photoToAdd, index);
 }
 
-Photo* Album::get(const string& photo) {
+Photo* Album::getPhoto(const string& photo) {
     return albumArray->get(photo);
 }
 
-Photo* Album::get(int index) {
+Photo* Album::getPhoto(int index) {
     return albumArray->get(index);
 }
 
-Photo* Album::remove(const string& titleName) {
+Photo* Album::removePhoto(const string& titleName) {
     return albumArray->remove(titleName);
 }
 
-Photo* Album::remove(int index) {
+Photo* Album::removePhoto(int index) {
     return albumArray->remove(index);
 }
 
 void Album::print() {
-    cout << "Title: " << title << " | Desc.: " << description << endl;
+    cout << "Album Title: " << title << " | Desc.: " << description << endl;
 }
 
 void Album::display() {

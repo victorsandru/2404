@@ -1,47 +1,39 @@
-# all: main
-	
-# main: main.cc Photo.o Date.o PhotoArray.o Album.o
-# 	g++ -g -o main main.cc Photo.o Date.o PhotoArray.o Album.o
-
-# Photo.o: Photo.h Photo.cc
-# 	g++ -c -g Photo.cc
-
-# Date.o:	Date.h Date.cc
-# 	g++ -c Date.cc
-
-# PhotoArray.o: PhotoArray.h PhotoArray.cc
-# 	g++ -g -c PhotoArray.cc 
-
-# Album.o: Album.h Album.cc
-# 	g++ -g -c Album.cc
-
-# clean:
-# 	rm -f test *.o
-
 #observe - Linux is case sensitive. These names should match your filenames exactly
 
-all: test main
+all: main main2
 
-main: main.cc PhotoArray.o Photo.o Date.o Album.o 
-	g++ -o main main.cc PhotoArray.o Photo.o Date.o Album.o 
+main: main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o 
+	g++ -o main main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o
 
-test: test.o PhotoArray.o Photo.o Date.o Album.o 
-	g++ -o test test.o PhotoArray.o Photo.o Date.o Album.o 
-	
-test.o: test.cc Photo.h Album.h
-	g++ -c test.cc
+main2: main2.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
+	g++ -g -o main2 main2.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
+
+TestView.o: TestView.cc TestView.h
+	g++ -g -c TestView.cc
+
+TestControl.o: TestControl.cc TestControl.h
+	g++ -g -c TestControl.cc
+
+Client.o: Client.cc Client.h
+	g++ -g -c Client.cc
+
+PhotoGram.o: PhotoGram.cc PhotoGram.h
+	g++ -g -c PhotoGram.cc
+
+AlbumArray.o: AlbumArray.cc AlbumArray.h
+	g++ -g -c AlbumArray.cc
 
 PhotoArray.o:   PhotoArray.cc PhotoArray.h
-	g++ -c PhotoArray.cc
+	g++ -g -c PhotoArray.cc
 	
 Album.o:	Album.h Album.cc 
-	g++ -c Album.cc 
+	g++ -g -c Album.cc 
 
 Photo.o:	Photo.h Photo.cc
-	g++ -c Photo.cc
+	g++ -g -c Photo.cc
 
 Date.o:	Date.h Date.cc
 	g++ -c Date.cc
 	
 clean:
-	rm -f test *.o
+	rm -f test *.o main main2
