@@ -24,7 +24,8 @@ bool AlbumArray::add(Album* albumAdd) {
     if(isFull()) return false;
     int index = -1;
     for(int i = 0; i < arrayLength; ++i) {
-        if(array[i]->lessThan(*albumAdd)) {
+        // if(array[i]->lessThan(*albumAdd)) {
+        if(albumAdd->lessThan(*array[i])) {
             index = i;
             break;
         }
