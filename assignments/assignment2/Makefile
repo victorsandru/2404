@@ -1,12 +1,9 @@
 #observe - Linux is case sensitive. These names should match your filenames exactly
 
-all: main main2
+all: main
 
-main: main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o 
-	g++ -o main main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o
-
-main2: main2.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
-	g++ -g -o main2 main2.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
+main: main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
+	g++ -g -o main main.cc PhotoArray.o Photo.o Date.o Album.o AlbumArray.o PhotoGram.o TestView.o TestControl.o Client.o
 
 TestView.o: TestView.cc TestView.h
 	g++ -g -c TestView.cc
