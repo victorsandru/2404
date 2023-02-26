@@ -6,17 +6,17 @@ AlbumArray::AlbumArray() {
 }
 
 AlbumArray::~AlbumArray() {
-    for(int i = 0; i < arrayLength; ++i) {
-        delete array[i];
-    }
+    // for(int i = 0; i < arrayLength; ++i) {
+    //     delete array[i];
+    // }
     delete[] array;
 }
 
-bool AlbumArray::isFull() {
+const bool AlbumArray::isFull() {
     return MAX_ARRAY == arrayLength;
 }
 
-int AlbumArray::size() {
+const int AlbumArray::size() {
     return arrayLength;
 }
 

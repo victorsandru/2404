@@ -9,8 +9,8 @@ class AlbumArray {
         AlbumArray(/* args */);
         ~AlbumArray();
 
-        bool isFull();
-        int size();
+        const bool isFull();
+        const int size();
 
         bool add(Album*);
 

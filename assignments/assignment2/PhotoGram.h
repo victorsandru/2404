@@ -9,8 +9,8 @@ class PhotoGram {
         PhotoGram();
         ~PhotoGram();
 
-        void printAlbums();
-        void displayAlbums();
+        const void printAlbums();
+        const void displayAlbums();
 
         // album title string, album desc. string
         bool addAlbum(const string& albumTitle, const string& albumDesc);

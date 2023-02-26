@@ -5,6 +5,9 @@ PhotoGram::PhotoGram() {
 }
 
 PhotoGram::~PhotoGram() {
+    for(int i = 0; i < albumArr->size(); ++i) {
+        delete albumArr->get(i);
+    }
     delete albumArr;
 }
 
@@ -60,13 +63,13 @@ Photo* PhotoGram::downloadPhoto(const string& albTitle, const string& photoTitle
     return NULL;
 }
 
-void PhotoGram::printAlbums() {
+const void PhotoGram::printAlbums() {
     for(int i = 0; i < albumArr->size(); ++i) {
         albumArr->get(i)->print();
     }
 }
 
-void PhotoGram::displayAlbums() {
+const void PhotoGram::displayAlbums() {
     for(int i = 0; i < albumArr->size(); ++i) {
         albumArr->get(i)->display();
     }

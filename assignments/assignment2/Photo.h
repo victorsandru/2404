@@ -12,9 +12,9 @@ class Photo {
         Photo(const string& title, const Date& date, const string& content);
         Photo(const Photo& oldPhoto);
         
-        bool equals(const string& titleName);
-        void print();
-        void display();
-        string& getTitle();
+        const bool equals(const string& titleName);
+        const void print();
+        const void display();
+        const string& getTitle();
 };
 #endif

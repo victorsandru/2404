@@ -19,15 +19,15 @@ Album::~Album() {
     delete albumArray;
 }
 
-int Album::size() {
+const int Album::size() {
     return albumArray->size();
 }
 
-string& Album::getTitle() {
+const string& Album::getTitle() {
     return title;
 }
 
-bool Album::equals(const string& titleName) {
+const bool Album::equals(const string& titleName) {
     return titleName == title;
 }
 
@@ -59,11 +59,11 @@ Photo* Album::removePhoto(int index) {
     return albumArray->remove(index);
 }
 
-void Album::print() {
+const void Album::print() {
     cout << "Album Title: " << title << " | Desc.: " << description << endl;
 }
 
-void Album::display() {
+const void Album::display() {
     print();
     for(int i = 0; i < albumArray->size(); ++i) {
         albumArray->get(i)->display();

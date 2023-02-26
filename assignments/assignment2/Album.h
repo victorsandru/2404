@@ -12,9 +12,9 @@ class Album {
         Album(const Album&);
         ~Album();
 
-        int size();
-        string& getTitle();
-        bool equals(const string&);
+        const int size();
+        const string& getTitle();
+        const bool equals(const string&);
         bool lessThan(Album&);
         bool addPhoto(Photo*);
         bool addPhoto(int, Photo*);
@@ -23,7 +23,7 @@ class Album {
         Photo* removePhoto(const string&);
         Photo* removePhoto(int);
 
-        void print();
-        void display();
+        const void print();
+        const void display();
 };
 #endif

@@ -5,6 +5,9 @@ Client::Client() {
 }
 
 Client::~Client() {
+    for(int i = 0; i < albArray->size(); ++i) {
+        delete albArray->get(i);
+    }
     delete albArray;
 }
 
@@ -34,13 +37,13 @@ bool Client::displayLocalPhoto(const string& albumTitle, const string& photoTitl
     return false;    
 }
 
-void Client::printLocalAlbums() {
+const void Client::printLocalAlbums() {
     for(int i = 0; i < albArray->size(); i++) {
         albArray->get(i)->print();
     }
 }
 
-void Client::displayLocalAlbums() {
+const void Client::displayLocalAlbums() {
         for(int i = 0; i < albArray->size(); i++) {
         albArray->get(i)->display();
     }

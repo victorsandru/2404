@@ -14,7 +14,7 @@ class Client {
         bool displayOnlinePhoto(PhotoGram* pg, const string& albumTitle, const string& photoTitle);
         bool displayLocalPhoto(const string& albumTitle, const string& photoTitle);
 
-        void printLocalAlbums();
-        void displayLocalAlbums();
+        const void printLocalAlbums();
+        const void displayLocalAlbums();
 };
 #endif
