@@ -4,7 +4,7 @@ const char Franchise::code = 'F';
 int Franchise::nextId = 0;
 const string Franchise::menu[MENU_ITEMS] = {"1. Large Poutine", "2. Medium Poutine", "3. Small Poutine"};
 
-Franchise::Franchise() : Entity(code, ++nextId, "fart", Location(0, 0)) {}
+Franchise::Franchise(const string& name) : Entity(code, ++nextId, name, Location(0, 0)) {};
 
 Franchise::Franchise(const string& name, Location location) : Entity(code, ++nextId, name, location) {};
 

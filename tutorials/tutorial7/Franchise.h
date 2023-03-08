@@ -8,7 +8,7 @@ class Franchise : public Entity{
         static int nextId;
         static const string menu[MENU_ITEMS];
     public:
-        Franchise();
+        Franchise(const string& name);
         Franchise(const string& name, Location location);
         void print() const;
 

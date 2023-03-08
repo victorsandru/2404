@@ -7,7 +7,7 @@ class Driver: public Entity {
         static const char code;
         static int nextId;
     public:
-        Driver();
+        Driver(const string& name);
         Driver(const string& name, Location location);
 
         bool isFree() const;

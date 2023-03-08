@@ -43,7 +43,6 @@ int franchiseIdTest(){
     streambuf* oldCoutStreamBuf = std::cout.rdbuf();
     ostringstream strCout;
     
-
     //reset stringstream
     for (int i = 0; i < ARR; ++i){
         //move std::cout to an ostringstream

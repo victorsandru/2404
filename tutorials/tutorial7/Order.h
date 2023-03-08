@@ -6,11 +6,11 @@ class Order {
     private:
         const string& name;
         int menuItem;
-        Location* deliver;        
+        Location deliver;        
     public:
-        Order(const string& orderName, int orderMenuItem, Location* orderDelievered);
+        Order(const string& orderName, int orderMenuItem, Location orderDelievered);
 
-        Location* getLocation() const;
+        Location getLocation() const;
         void print() const;
 };
 

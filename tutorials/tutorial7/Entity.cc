@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-Entity::Entity(char type, int num, const string& name, Location location) : name(name), id(type + to_string(num)) {
+Entity::Entity(char type, int num, const string& name, Location location) : name(name), id(name) {
     location = location;
     orders = new Queue();
 }

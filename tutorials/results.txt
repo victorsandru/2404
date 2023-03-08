@@ -1,0 +1,55 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+\Franchise id test
+
+Executing: ./test
+FRANCHISE | Name: Elise | Id: Elise | Location: 0th Ave and 0th AveC5 found, success!
+FRANCHISE | Name: Abe | Id: Abe | Location: 0th Ave and 0th AveC1 found, success!
+FRANCHISE | Name: Bae | Id: Bae | Location: 0th Ave and 0th AveC2 found, success!
+FRANCHISE | Name: Deb | Id: Deb | Location: 0th Ave and 0th AveC4 found, success!
+FRANCHISE | Name: Cedric | Id: Cedric | Location: 0th Ave and 0th AveC3 found, success!
+
+
+Test passed
+
+Driver id test
+
+Executing: ./test
+DRIVER | Name: Elise | Id: Elise | Location: 0th Ave and 0th AveD5 found, success!
+DRIVER | Name: Abe | Id: Abe | Location: 0th Ave and 0th AveD1 found, success!
+DRIVER | Name: Bae | Id: Bae | Location: 0th Ave and 0th AveD2 found, success!
+DRIVER | Name: Deb | Id: Deb | Location: 0th Ave and 0th AveD4 found, success!
+DRIVER | Name: Cedric | Id: Cedric | Location: 0th Ave and 0th AveD3 found, success!
+
+
+Test passed
+
+Delivery test
+
+Executing: ./test
+
+Adding 3 orders to franchise...
+
+Driver picking up 2 orders...
+
+Delivering 2 orders...
+
+Driver picking up order
+
+All tests passed!
+
+
+Test passed
+
+
+***************************************************************************
+* Mark: 6/6
+***************************************************************************
+
