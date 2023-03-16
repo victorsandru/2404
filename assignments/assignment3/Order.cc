@@ -1,4 +1,5 @@
 #include "Order.h"
+#include "Franchise.h"
 
 Order::Order(const string& orderName, int orderMenuItem, Location* orderDelievered) : name(orderName) {
     menuItem = orderMenuItem;
@@ -10,5 +11,5 @@ Location* Order::getLocation() const {
 }
 
 void Order::print() const {
-    cout << name << " | Menu Item #: " << menuItem << endl;
+    cout << name << " | Menu Item: " << Franchise::getMenu(menuItem) << endl;
 }

@@ -4,7 +4,11 @@ const char Franchise::code = 'F';
 int Franchise::nextId = 0;
 const string Franchise::menu[MENU_ITEMS] = {"1. Large Poutine", "2. Medium Poutine", "3. Small Poutine"};
 
-Franchise::Franchise() : Entity(code, ++nextId, "fart", Location(0, 0)) {}
+Franchise::Franchise() : Entity(code, ++nextId, "Shawarma", Location(0, 0)) {}
+
+Franchise::~Franchise() {
+    
+}
 
 Franchise::Franchise(const string& name, Location location) : Entity(code, ++nextId, name, location) {};
 
@@ -14,7 +18,7 @@ const string Franchise::getMenu(int index) {
 }
 
 void Franchise::print() const {
-    cout << "FRANCHISE | Name: " << name << " | Id: " << id << " | Location: ";
+    cout << "FRANCHISE | Name: " << name << " | Id: " << id << " | Number of orders: " << getNumOrders() << " | Location: ";
     location.print();
 }
 

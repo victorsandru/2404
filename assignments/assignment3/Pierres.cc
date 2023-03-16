@@ -2,6 +2,17 @@
 
 Pierres::Pierres() {}
 
+Pierres::~Pierres() {
+    for(Driver* d : drivers) {
+        delete d;
+    }
+    drivers.clear();
+    for(Franchise* f : franchises) {
+        delete f;
+    }
+    franchises.clear();
+}
+
 void Pierres::addDriver(const string& name, Location location) {
     drivers.push_back(new Driver(name, location));
 }

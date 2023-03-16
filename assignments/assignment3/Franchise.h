@@ -9,6 +9,7 @@ class Franchise : public Entity{
         static const string menu[MENU_ITEMS];
     public:
         Franchise();
+        ~Franchise();
         Franchise(const string& name, Location location);
         void print() const;
 

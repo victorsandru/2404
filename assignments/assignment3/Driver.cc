@@ -2,7 +2,7 @@
 const char Driver::code = 'D';
 int Driver::nextId = 999;
 
-Driver::Driver() : Entity(code, ++nextId, "e", Location(0, 0)) {}
+Driver::Driver(const string& name) : Entity(code, ++nextId, name, Location(0, 0)) {};
 
 
 Driver::Driver(const string& name, Location location) : Entity(code, ++nextId, name, location) {}
@@ -12,6 +12,6 @@ bool Driver::isFree() const {
 }
 
 void Driver::print() const {
-    cout << "DRIVER | Name: " << name << " | Id: " << id << " | Location: ";
+    cout << "DRIVER | Name: " << name << " | Id: " << id << " | Number of orders: " << getNumOrders() << " | Location: ";
     location.print();
 }

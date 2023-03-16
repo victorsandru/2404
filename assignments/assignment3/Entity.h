@@ -3,9 +3,8 @@
 #include "Queue.h"
 
 class Entity {
-		
 	public:
-		Entity(char, int, const string&, Location);
+		Entity(const char, const int, const string&, const Location&);
 		~Entity();
 		void setLocation(Location);
 
@@ -15,11 +14,11 @@ class Entity {
 		bool equals(const string&);
 		Location* getLocation();
 
-		void print();
+		void print() const;
 	
 	protected:
-		const string& id;
-		const string& name;
+		const string id;
+		const string name;
 		Location location;
 		Queue* orders;
 };

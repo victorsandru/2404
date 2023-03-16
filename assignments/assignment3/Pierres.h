@@ -10,6 +10,7 @@ class Pierres {
         vector<Franchise*> franchises;
     public:
         Pierres();
+        ~Pierres();
 
         void addDriver(const string& name, Location location);
         void addFranchise(const string& name, Location location);

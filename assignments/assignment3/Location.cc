@@ -11,13 +11,13 @@ void Location::setLocation(int x, int y){
     this->y = y;
 }
 
-int Location::getDistance(const Location& l){
+int Location::getDistance(const Location& l) const{
     return abs(l.x-x)+abs(l.y-y);
 }
 
 
 void Location::print() const{  
-    cout<<street(x)<<" and "<<street(y);
+    cout<<street(x)<<" and "<<street(y) << endl;
 }
 
 string Location::street(int s)const{

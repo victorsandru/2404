@@ -59,11 +59,11 @@ void Controller::initPierres(){
     pierres.addFranchise("Philip", Location(1, 7));
 
     // You may uncomment when these functions are working if you wish
-    // pierres.takeOrder("alice", 1, Location(7,4));
-    // pierres.takeOrder("bob", 2, Location(4,1));
-    // pierres.takeOrder("charlie", 0, Location(6,6));
+    pierres.takeOrder("alice", 1, Location(7,4));
+    pierres.takeOrder("bob", 2, Location(4,1));
+    pierres.takeOrder("charlie", 0, Location(6,6));
 
-    // pierres.driverPickup("F1", 2);
+    pierres.driverPickup("F1", 2);
 
 }
 
