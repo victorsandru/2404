@@ -1,9 +1,9 @@
 Victor Sandru
 101231111
-compile and execute instructions:
-1. make
-2. ./main
 
+Instructions:
+    compile using 'make all'
+    run using './main'
 
 
 
