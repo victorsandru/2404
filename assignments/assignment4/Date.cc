@@ -78,7 +78,7 @@ void Date::addDays(int num){
 }
 
 void Date::print() const{
-	cout << getMonthName()<<" "<<day<<", "<<year;
+	cout << getMonthName()<<" "<<day<<", "<<year << endl;
 }
 
 int Date::getMaxDay() const{
@@ -92,3 +92,31 @@ int Date::getMaxDay() const{
 	}
 }
 
+bool Date::operator<(const Date& other) const {
+	if (year < other.getYear())
+            return true;
+        else if (year > other.getYear())
+            return false;
+
+        if (month < other.getMonth())
+            return true;
+        else if (month > other.getMonth())
+            return false;
+
+        if (day < other.getDay())
+            return true;
+        else
+            return false;
+}
+
+bool Date::operator==(const Date& other) const {
+	return (year == other.getYear() && month == other.getMonth() && day == other.getDay());
+}
+
+bool Date::operator<=(const Date& other) const {
+	return (*this < other) || (*this == other);
+}
+ostream& Date::operator<<(ostream& os) const {
+	os << year << '-' << month << '-' << day;
+	return os;
+};

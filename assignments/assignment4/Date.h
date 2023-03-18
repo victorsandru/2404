@@ -32,6 +32,12 @@ class Date {
 		void incDate();
 		void addDays(int);
 		void print() const;
+
+		//overloaded
+		bool operator<(const Date&) const;
+		bool operator==(const Date&) const;
+		bool operator<=(const Date&) const;
+		ostream& operator<<(ostream& os) const;
 		
 	
 	private:
