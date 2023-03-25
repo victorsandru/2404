@@ -23,6 +23,6 @@ class Photo {
         void print(ostream&) const;
         void display(ostream&) const;
 
-		ostream& operator<<(ostream& os) const;
+		friend ostream& operator<<(ostream& os, const Photo&);
 };
 #endif

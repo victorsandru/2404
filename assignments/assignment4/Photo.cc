@@ -26,8 +26,7 @@ bool Photo::equals(const string& titleName) const {
 }
 
 void Photo::print(ostream& os) const {
-    os << "Photo Title: " << title << " | Category: " << category <<" | date: ";
-    date.print();
+    os << "Photo Title: " << title << " | Category: " << category <<" | date: " << date << endl;
 }
 
 void Photo::display(ostream& os) const {
@@ -51,7 +50,7 @@ const Date& Photo::getDate() const {
     return date;
 }
 
-ostream& Photo::operator<<(ostream& os) const {
-    os << "Photo Title: " << title << " | Category: " << category << " | Content: " << content << " | Date: " << date << endl;
+ostream& operator<<(ostream& os, const Photo& p) {
+    os << "Photo Title: " << p.title << " | Category: " << p.category << " | Content: " << p.content << " | Date: " << p.date << endl;
     return os;
 };

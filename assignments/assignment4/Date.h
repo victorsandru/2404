@@ -37,7 +37,7 @@ class Date {
 		bool operator<(const Date&) const;
 		bool operator==(const Date&) const;
 		bool operator<=(const Date&) const;
-		ostream& operator<<(ostream& os) const;
+		friend ostream& operator<<(ostream& os, const Date& date);
 		
 	
 	private:

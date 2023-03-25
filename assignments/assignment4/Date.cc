@@ -116,7 +116,7 @@ bool Date::operator==(const Date& other) const {
 bool Date::operator<=(const Date& other) const {
 	return (*this < other) || (*this == other);
 }
-ostream& Date::operator<<(ostream& os) const {
-	os << year << '-' << month << '-' << day;
+ostream& operator<<(ostream& os, const Date& d) {
+	os << d.year << '-' << d.month << '-' << d.day;
 	return os;
 };
