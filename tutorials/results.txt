@@ -1,55 +1,104 @@
-***************************************************************************
-* Unzipping *.zip
-***************************************************************************
 
 ***************************************************************************
 * Compilation
 ***************************************************************************
 Executing: make clean
 Executing: make all
-\Franchise id test
-
 Executing: ./test
-FRANCHISE | Name: Elise | Id: Elise | Location: 0th Ave and 0th AveC5 found, success!
-FRANCHISE | Name: Abe | Id: Abe | Location: 0th Ave and 0th AveC1 found, success!
-FRANCHISE | Name: Bae | Id: Bae | Location: 0th Ave and 0th AveC2 found, success!
-FRANCHISE | Name: Deb | Id: Deb | Location: 0th Ave and 0th AveC4 found, success!
-FRANCHISE | Name: Cedric | Id: Cedric | Location: 0th Ave and 0th AveC3 found, success!
+Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
 
-
+Should match
+Matched
 Test passed
 
-Driver id test
+Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
 
-Executing: ./test
-DRIVER | Name: Elise | Id: Elise | Location: 0th Ave and 0th AveD5 found, success!
-DRIVER | Name: Abe | Id: Abe | Location: 0th Ave and 0th AveD1 found, success!
-DRIVER | Name: Bae | Id: Bae | Location: 0th Ave and 0th AveD2 found, success!
-DRIVER | Name: Deb | Id: Deb | Location: 0th Ave and 0th AveD4 found, success!
-DRIVER | Name: Cedric | Id: Cedric | Location: 0th Ave and 0th AveD3 found, success!
-
-
+Should not match
+Did not match
 Test passed
 
-Delivery test
+Testing date criteria passed
+
+
 
 Executing: ./test
+Criteria Category is: Animal
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
 
-Adding 3 orders to franchise...
-
-Driver picking up 2 orders...
-
-Delivering 2 orders...
-
-Driver picking up order
-
-All tests passed!
-
-
+Should match
+Matched
 Test passed
+
+Criteria Category is: People
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+
+Should not match
+Did not match
+Test passed
+
+Testing category criteria passed
+
+
+
+Executing: ./test
+Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
+Criteria Category is: Animal
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+
+Should match
+Matched
+Test passed
+
+Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
+Criteria Category is: Animal
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+
+Should not match
+Did not match
+Test passed
+
+Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
+Criteria Category is: People
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+
+Should not match
+Did not match
+Test passed
+
+Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
+Criteria Category is: People
+Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+
+Should not match
+Did not match
+Test passed
+
+Testing artist or category criteria passed
+
+
+
+Executing: ./test
+Criteria is: Date | Start: 2023-4-1 | End: 2023-5-2
+
+2023-4-1, 2023-5-2 found in output, test passed
+
+Criteria Category is: Animal
+
+'Animal' found in output, test passed
+
+Criteria is: Date | Start: 2023-4-1 | End: 2023-5-2
+Criteria Category is: People
+
+
+2023-4-1, 2023-5-2 and 'People' found in output, test passed
+
+
+
 
 
 ***************************************************************************
-* Mark: 6/6
+* Mark: 12/12
 ***************************************************************************
 

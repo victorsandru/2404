@@ -64,7 +64,7 @@ def run_with_timeout(cmd, timeout_sec, stdinput):
 	return proc.returncode, timeout["value"], out, err
 
 	
-def run(cmd, time, stdinput="", testlist = []):
+def run(cmd, time, stdinput="", testlist = [], mark = 2):
 	#print("Running: {}\n".format(cmd))
 	print("Executing: {}".format(" ".join(cmd)))
 	try:
@@ -83,16 +83,16 @@ def run(cmd, time, stdinput="", testlist = []):
 	if res == 0:
 		# program ran and nothing crashed. Check the output
 		if len(testlist)==0:
-			print("Test passed")
-			return 2
+			#print("Test passed")
+			return mark
 		score = 0
 		#save the last thing written to cout
 		for e in testlist:
 			if (out.find(e) == -1 and err.find(e) == -1):
-				print("****ERROR****** "+e+" NOT found")
+				print(e+" not found")
 			else:
 				print(e+" found, 2 marks")
-				score+=2
+				score+=mark
 		return score
 	else: 
 		print("Program exited with non-zero status, test failed")
@@ -125,18 +125,20 @@ def unzip_and_test(dirname, zipfile, outof):
 		print("Executing: {}".format(" ".join(cmd)))
 		res = subprocess.call(cmd)
 		sys.stdout.flush()
-		
+		if res:
+			# make command produced an error
+			# return with 0 marks
+			print("make: non-zero exit status {}".format(res))
+			print("\n\n{stars}\n* Mark: {mark}/{outof}\n".format(stars="*"*75, mark=0, outof=outof))
+			return
 		
 	score = 0
-			
-	print("\Franchise id test\n")
-	score += (run(["./test"], 5, '0'))
-
-	print("\nDriver id test\n")
-	score += (run(["./test"], 5, '1'))
 	
-	print("\nDelivery test\n")
-	score += run(["./test"], 5, '2')
+			
+	args = ['0','1','2','3']
+	marks = [2, 2, 4, 4]
+	for i in range(len(args)):
+		score += run(["./test"], 5, args[i], mark = marks[i])
 	
 	
 	print("\n\n{stars}\n* Mark: {mark}/{outof}\n{stars}\n".format(stars="*"*75, mark=score, outof=outof))
@@ -161,8 +163,8 @@ def process_all():
 	
 	t.open('results.txt', 'w')
 	
-	dirname = 'tutorial7'
-	unzip_and_test(dirname,zipfile, 6)
+	dirname = 'tutorial8'
+	unzip_and_test(dirname,zipfile, 12)
 		
 	t.close()
 
