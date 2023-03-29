@@ -47,15 +47,16 @@ Photo* MediaFactory::uploadPhoto(const string& t){
 
 // create Criteria
 Criteria* MediaFactory::dateCriteria(const Date& start, const Date& end){
-
+    return new Date_Criteria(start, end);
 }
-Criteria* MediaFactory::categoryCriteria(const string& cat){
 
+Criteria* MediaFactory::categoryCriteria(const string& cat){
+    return new Cat_Criteria(cat);
 }
 Criteria* MediaFactory::dateAndCatCriteria(const Date& start, const Date& end, const string& cat){
-
+    return new CandD_Criteria(start, end, cat);
 }
 
 Album* MediaFactory::createAlbum(const string& title, const string& description){
-
+    return new Album(title, description);
 }
