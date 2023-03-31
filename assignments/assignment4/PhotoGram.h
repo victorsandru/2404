@@ -11,22 +11,26 @@ class PhotoGram {
         PhotoGram();
         ~PhotoGram();
 
-        void printAlbums() const;
-        void displayAlbums() const;
+        // void printAlbums() const;
+        // void displayAlbums() const;
 
         // album title string, album desc. string
         bool addAlbum(const string& albumTitle, const string& albumDesc);
-        void addToAlbum(int, Array<Photo*>*);
+        void addToAlbum(int, Array<Photo*>);
         void uploadPhoto(const string&);
-        bool deleteAlbum(int);
-        Photo* getPhotos(Criteria, Array<Photo*>*);
+        void deleteAlbum(int);
+        void getPhotos(const Criteria&, Array<Photo*>&) const;
         
-        bool addPhoto(const string& albumTitle, Photo);
-        // album title, photo title
-        bool removePhoto(const string& albumTitle, const string& photoTitle);
+        // bool addPhoto(const string& albumTitle, Photo);
+        // bool removePhoto(const string& albumTitle, const string& photoTitle);
 
-        Album* downloadAlbum(int index);
-        Photo* downloadPhoto(const string&, const string&);
+        void displayAlbum(int, View&) const;
+        int printAlbums(View&) const;
+        void displayPhoto(int, View&) const;
+        int printPhotos(View&) const;
+
+        // Album* downloadAlbum(int index);
+        // Photo* downloadPhoto(const string&, const string&);
 
 
 };

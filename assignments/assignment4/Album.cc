@@ -44,3 +44,9 @@ void Album::display(ostream& os) const {
         (*albumArray)[i]->display(os);
     }
 }
+
+ostream& operator<<(ostream& os, const Album& a) {
+    os << "Album Title: " << a.title << " | desc.: " << a.description << " | Cotent: " << endl;
+    a.display(os);
+    return os;
+};

@@ -35,7 +35,7 @@ class Tee(object):
 		self.file.flush()
 		self.stdout.flush()
 		
-verbose = True
+verbose = False
 
 def kill_proc(proc, timeout):
 	# you must have done something wrong
@@ -64,7 +64,7 @@ def run_with_timeout(cmd, timeout_sec, stdinput):
 	return proc.returncode, timeout["value"], out, err
 
 	
-def run(cmd, time, stdinput="", testlist = [], mark = 2):
+def run(cmd, time, stdinput="", testlist = []):
 	#print("Running: {}\n".format(cmd))
 	print("Executing: {}".format(" ".join(cmd)))
 	try:
@@ -83,8 +83,8 @@ def run(cmd, time, stdinput="", testlist = [], mark = 2):
 	if res == 0:
 		# program ran and nothing crashed. Check the output
 		if len(testlist)==0:
-			#print("Test passed")
-			return mark
+			print("Test passed")
+			return 2
 		score = 0
 		#save the last thing written to cout
 		for e in testlist:
@@ -92,7 +92,7 @@ def run(cmd, time, stdinput="", testlist = [], mark = 2):
 				print(e+" not found")
 			else:
 				print(e+" found, 2 marks")
-				score+=mark
+				score+=2
 		return score
 	else: 
 		print("Program exited with non-zero status, test failed")
@@ -134,11 +134,15 @@ def unzip_and_test(dirname, zipfile, outof):
 		
 	score = 0
 	
-			
-	args = ['0','1','2','3']
-	marks = [2, 2, 4, 4]
-	for i in range(len(args)):
-		score += run(["./test"], 5, args[i], mark = marks[i])
+	#arguments are:
+	#<command, timeout, input, find in output, score per string found>
+		
+	#args=['0','1','2']
+	#out = ['Podcast class','Podcast destructor', 'Podcast deep copy']
+	
+		
+	
+	score += 2*run(["./test"], 5)
 	
 	
 	print("\n\n{stars}\n* Mark: {mark}/{outof}\n{stars}\n".format(stars="*"*75, mark=score, outof=outof))
@@ -163,8 +167,8 @@ def process_all():
 	
 	t.open('results.txt', 'w')
 	
-	dirname = 'tutorial8'
-	unzip_and_test(dirname,zipfile, 12)
+	dirname = 'tutorial9'
+	unzip_and_test(dirname,zipfile, 4)
 		
 	t.close()
 

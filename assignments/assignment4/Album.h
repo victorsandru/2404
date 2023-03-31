@@ -20,5 +20,7 @@ class Album {
 
         void print(ostream&) const;
         void display(ostream&) const;
+
+        friend ostream& operator<<(ostream& os, const Album&);
 };
 #endif

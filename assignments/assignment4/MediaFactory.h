@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "Album.h"
+#include "View.h"
 #include "Criteria.h"
 
 using namespace std;
@@ -16,7 +16,7 @@ class MediaFactory {
 
 		// create an Album
 		Album* createAlbum(const string& title, const string& description);
-
+	
 		// create Criteria
 		Criteria* dateCriteria(const Date& start, const Date& end);
 		Criteria* categoryCriteria(const string& category);

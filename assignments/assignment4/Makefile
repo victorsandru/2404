@@ -12,7 +12,6 @@ View.o: View.h View.cc
 AlbumCreator.o: AlbumCreator.h AlbumCreator.cc 
 	g++ -c AlbumCreator.cc
 
-
 PhotoGram.o: PhotoGram.h PhotoGram.cc
 	g++ -c PhotoGram.cc
 

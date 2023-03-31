@@ -2,7 +2,7 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
-#include "Criteria.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ class Array {
 		
 		void add(T);
 		void remove(int);
-		int size() const;
+		int getSize();
 		bool isFull();
 		void clear();
 
@@ -31,7 +31,7 @@ class Array {
 
 template<typename T>
 Array<T>::Array(){
-	elements = new T[MAX_ARRAY];
+	elements = new T[MAX_ARR];
 	numElements = 0;
 }
 
@@ -42,7 +42,7 @@ Array<T>::~Array(){
 
 template<typename T>
 void Array<T>::add(T t){
-	if (numElements >= MAX_ARRAY)   return;
+	if (numElements >= MAX_ARR)   return;
   	elements[numElements++] = t;
 }
 
@@ -56,13 +56,13 @@ void Array<T>::remove(int t){
 }
 
 template<typename T>
-int Array<T>::size() const{
+int Array<T>::getSize(){
 	return numElements;
 }
 
 template<typename T>
 bool Array<T>::isFull(){
-	return numElements >= MAX_ARRAY;
+	return numElements >= MAX_ARR;
 }
 
 template<typename T>

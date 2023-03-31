@@ -5,100 +5,39 @@
 Executing: make clean
 Executing: make all
 Executing: ./test
-Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
+Adding 10 dates
+2021-9-1
+2021-9-2
+2021-9-3
+2021-9-4
+2021-9-5
+2021-9-6
+2021-9-7
+2021-9-8
+2021-9-9
+2021-9-10
+Size is 10, correct
+Array is not full, correct
+Remove every second date:
+Size is 5, correct
+2021-9-2
+2021-9-4
+2021-9-6
+2021-9-8
+2021-9-10
+Remove all but 2 dates:
+Printing 2 dates:
+2021-9-8
+2021-9-10
+Dates are correct
+Testing clear
+Size is 0, correct
+Deleting 10 dates
 
-Should match
-Matched
 Test passed
-
-Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should not match
-Did not match
-Test passed
-
-Testing date criteria passed
-
-
-
-Executing: ./test
-Criteria Category is: Animal
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should match
-Matched
-Test passed
-
-Criteria Category is: People
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should not match
-Did not match
-Test passed
-
-Testing category criteria passed
-
-
-
-Executing: ./test
-Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
-Criteria Category is: Animal
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should match
-Matched
-Test passed
-
-Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
-Criteria Category is: Animal
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should not match
-Did not match
-Test passed
-
-Criteria is: Date | Start: 2023-4-1 | End: 2023-4-2
-Criteria Category is: People
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should not match
-Did not match
-Test passed
-
-Criteria is: Date | Start: 2023-4-2 | End: 2023-4-3
-Criteria Category is: People
-Photo Title: Bear | Category: Animal | Content: grrr | Date: 2023-4-1
-
-Should not match
-Did not match
-Test passed
-
-Testing artist or category criteria passed
-
-
-
-Executing: ./test
-Criteria is: Date | Start: 2023-4-1 | End: 2023-5-2
-
-2023-4-1, 2023-5-2 found in output, test passed
-
-Criteria Category is: Animal
-
-'Animal' found in output, test passed
-
-Criteria is: Date | Start: 2023-4-1 | End: 2023-5-2
-Criteria Category is: People
-
-
-2023-4-1, 2023-5-2 and 'People' found in output, test passed
-
-
-
 
 
 ***************************************************************************
-* Mark: 12/12
+* Mark: 4/4
 ***************************************************************************
 
